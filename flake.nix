@@ -19,7 +19,7 @@
           pname   = "affinity";
           version = "3.0.1";  # or whatever version they show
 
-          src = {
+          sources = {
             x86_64-darwin = fetchurl {
               url  = "https://downloads.affinity.studio/Affinity.dmg";
               hash = "sha256-Ew3fukQWwKOrl/l7dPy6ZWj9sN592V1l+qep0zvQRIk=";
@@ -29,6 +29,7 @@
               hash = "sha256-Ew3fukQWwKOrl/l7dPy6ZWj9sN592V1l+qep0zvQRIk=";
             };
           };
+          src = sources.${pkgs.stdenv.hostPlatform.system};
 
           nativeBuildInputs = [ pkgs.undmg ];
 
